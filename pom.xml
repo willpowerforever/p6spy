@@ -69,7 +69,7 @@
     <commons-logging-build>1.1</commons-logging-build>
     <slf4j-build>1.7.7</slf4j-build>
     <log4j-build>1.2.17</log4j-build>
-    <log4j2-build>2.0-rc1</log4j2-build>
+    <log4j2-build>2.12.4</log4j2-build>
     <logback-build>1.1.2</logback-build>
     <mysql-connector-java-build>5.1.21</mysql-connector-java-build>
     <!-- please note we use jdbc type 3 here, to prove in tests it works for us, see: https://github.com/p6spy/p6spy/issues/30 -->
