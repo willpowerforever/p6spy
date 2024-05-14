@@ -30,6 +30,8 @@ jobs:
       matrix:
         repository: ${{ fromJson(needs.build-matrix.outputs.repositories) }}
     steps:
+      - name: Print repositories
+        run: echo "Repositories: ${{ needs.build-matrix.outputs.repositories }}"
       - uses: advanced-security/cbom-action/analyze@v1
         with:
           repositoryNameWithOwner: ${{ fromJson(matrix.repository).nameWithOwner }}
