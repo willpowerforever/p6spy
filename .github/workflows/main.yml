@@ -31,7 +31,10 @@ jobs:
         repository: ${{ fromJson(needs.build-matrix.outputs.repositories) }}
     steps:
       - name: Print repositories
-        run: echo "Repositories: ${{ needs.build-matrix.outputs.repositories }}"
+        run: |
+          echo "Repositories (raw): ${{ needs.build-matrix.outputs.repositories }}"
+          echo "Repositories (formatted):"
+          echo '${{ needs.build-matrix.outputs.repositories }}' | jq .
       - uses: advanced-security/cbom-action/analyze@v1
         with:
           repositoryNameWithOwner: ${{ fromJson(matrix.repository).nameWithOwner }}
@@ -45,6 +48,3 @@ jobs:
       - uses: advanced-security/cbom-action/workflow-summary@v1
         with:
           repositoryNameWithOwner: ${{ github.repository }}
-
-# No additional job for inputs
-# Ensure the required inputs are documented in the respective action repositories
